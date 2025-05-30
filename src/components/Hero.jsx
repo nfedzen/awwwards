@@ -45,9 +45,25 @@ const Hero = () => {
                 <video 
                     ref={nextVideoRef}
                     src={getVideoSrc(currentIndex)}
+                    loop
+                    muted
+                    id="next-video"
+                    className='absolute-center invisible absolute z-20 size-64 object-cover object center'
+                    onLoadedData={handleVideoLoad}
                 />
 
             </div>
+
+                 <video 
+                    src={getVideoSrc(currentIndex === totalVideos - 1 ? 1 : currentIndex)}
+                    loop
+                    autoPlay
+                    muted
+                    id="next-video"
+                    className='absolute left-0 top-0 size-full object-cover object-center'
+                    onLoadedData={handleVideoLoad}
+                />
+
         </div>
     </div>
   )
